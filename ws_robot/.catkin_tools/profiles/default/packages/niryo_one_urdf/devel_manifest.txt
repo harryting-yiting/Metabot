@@ -1,5 +1,0 @@
-niryo_one_urdf
-/home/harryting/metabot/Metabot/ws_robot/devel/.private/niryo_one_urdf/cmake.lock /home/harryting/metabot/Metabot/ws_robot/devel/./cmake.lock
-/home/harryting/metabot/Metabot/ws_robot/devel/.private/niryo_one_urdf/share/niryo_one_urdf/cmake/niryo_one_urdfConfig-version.cmake /home/harryting/metabot/Metabot/ws_robot/devel/share/niryo_one_urdf/cmake/niryo_one_urdfConfig-version.cmake
-/home/harryting/metabot/Metabot/ws_robot/devel/.private/niryo_one_urdf/share/niryo_one_urdf/cmake/niryo_one_urdfConfig.cmake /home/harryting/metabot/Metabot/ws_robot/devel/share/niryo_one_urdf/cmake/niryo_one_urdfConfig.cmake
-/home/harryting/metabot/Metabot/ws_robot/devel/.private/niryo_one_urdf/lib/pkgconfig/niryo_one_urdf.pc /home/harryting/metabot/Metabot/ws_robot/devel/lib/pkgconfig/niryo_one_urdf.pc

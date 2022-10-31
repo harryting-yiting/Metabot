@@ -1,6 +1,0 @@
-niryo_one_ros/niryo_one_driver
-/home/harryting/metabot/Metabot/ws_robot/devel/.private/niryo_one_driver/cmake.lock /home/harryting/metabot/Metabot/ws_robot/devel/./cmake.lock
-/home/harryting/metabot/Metabot/ws_robot/devel/.private/niryo_one_driver/share/niryo_one_driver/cmake/niryo_one_driverConfig.cmake /home/harryting/metabot/Metabot/ws_robot/devel/share/niryo_one_driver/cmake/niryo_one_driverConfig.cmake
-/home/harryting/metabot/Metabot/ws_robot/devel/.private/niryo_one_driver/share/niryo_one_driver/cmake/niryo_one_driverConfig-version.cmake /home/harryting/metabot/Metabot/ws_robot/devel/share/niryo_one_driver/cmake/niryo_one_driverConfig-version.cmake
-/home/harryting/metabot/Metabot/ws_robot/devel/.private/niryo_one_driver/lib/pkgconfig/niryo_one_driver.pc /home/harryting/metabot/Metabot/ws_robot/devel/lib/pkgconfig/niryo_one_driver.pc
-/home/harryting/metabot/Metabot/ws_robot/devel/.private/niryo_one_driver/lib/niryo_one_driver/niryo_one_driver /home/harryting/metabot/Metabot/ws_robot/devel/lib/niryo_one_driver/niryo_one_driver

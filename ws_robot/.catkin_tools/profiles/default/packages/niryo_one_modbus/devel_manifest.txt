@@ -1,6 +1,0 @@
-niryo_one_ros/niryo_one_modbus
-/home/harryting/metabot/Metabot/ws_robot/devel/.private/niryo_one_modbus/cmake.lock /home/harryting/metabot/Metabot/ws_robot/devel/./cmake.lock
-/home/harryting/metabot/Metabot/ws_robot/devel/.private/niryo_one_modbus/share/niryo_one_modbus/cmake/niryo_one_modbusConfig-version.cmake /home/harryting/metabot/Metabot/ws_robot/devel/share/niryo_one_modbus/cmake/niryo_one_modbusConfig-version.cmake
-/home/harryting/metabot/Metabot/ws_robot/devel/.private/niryo_one_modbus/share/niryo_one_modbus/cmake/niryo_one_modbusConfig.cmake /home/harryting/metabot/Metabot/ws_robot/devel/share/niryo_one_modbus/cmake/niryo_one_modbusConfig.cmake
-/home/harryting/metabot/Metabot/ws_robot/devel/.private/niryo_one_modbus/lib/python3/dist-packages/niryo_one_modbus/__init__.py /home/harryting/metabot/Metabot/ws_robot/devel/lib/python3/dist-packages/niryo_one_modbus/__init__.py
-/home/harryting/metabot/Metabot/ws_robot/devel/.private/niryo_one_modbus/lib/pkgconfig/niryo_one_modbus.pc /home/harryting/metabot/Metabot/ws_robot/devel/lib/pkgconfig/niryo_one_modbus.pc
