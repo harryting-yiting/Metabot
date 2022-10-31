@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<launch>
+  <param name="robot_description" command="$(find xacro)/xacro '$(find niryo_robot_description)/urdf/one/niryo_one.urdf.xacro'" />
+</launch>

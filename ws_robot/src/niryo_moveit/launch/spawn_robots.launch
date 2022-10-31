@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- Spawn URDF in Gazebo -->
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" respawn="false"
+          args="-urdf -model niryo_robot -param robot_description" output="log"/>
+</launch>

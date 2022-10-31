@@ -1,0 +1,6 @@
+niryo_one_ros/niryo_one_python_api
+/home/harryting/metabot/Metabot/ws_robot/devel/.private/niryo_one_python_api/cmake.lock /home/harryting/metabot/Metabot/ws_robot/devel/./cmake.lock
+/home/harryting/metabot/Metabot/ws_robot/devel/.private/niryo_one_python_api/share/niryo_one_python_api/cmake/niryo_one_python_apiConfig.cmake /home/harryting/metabot/Metabot/ws_robot/devel/share/niryo_one_python_api/cmake/niryo_one_python_apiConfig.cmake
+/home/harryting/metabot/Metabot/ws_robot/devel/.private/niryo_one_python_api/share/niryo_one_python_api/cmake/niryo_one_python_apiConfig-version.cmake /home/harryting/metabot/Metabot/ws_robot/devel/share/niryo_one_python_api/cmake/niryo_one_python_apiConfig-version.cmake
+/home/harryting/metabot/Metabot/ws_robot/devel/.private/niryo_one_python_api/lib/python3/dist-packages/niryo_one_python_api/__init__.py /home/harryting/metabot/Metabot/ws_robot/devel/lib/python3/dist-packages/niryo_one_python_api/__init__.py
+/home/harryting/metabot/Metabot/ws_robot/devel/.private/niryo_one_python_api/lib/pkgconfig/niryo_one_python_api.pc /home/harryting/metabot/Metabot/ws_robot/devel/lib/pkgconfig/niryo_one_python_api.pc

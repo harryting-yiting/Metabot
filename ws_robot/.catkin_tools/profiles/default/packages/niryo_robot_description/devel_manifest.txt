@@ -1,0 +1,5 @@
+ned_ros/niryo_robot_description
+/home/harryting/metabot/Metabot/ws_robot/devel/.private/niryo_robot_description/cmake.lock /home/harryting/metabot/Metabot/ws_robot/devel/./cmake.lock
+/home/harryting/metabot/Metabot/ws_robot/devel/.private/niryo_robot_description/share/niryo_robot_description/cmake/niryo_robot_descriptionConfig-version.cmake /home/harryting/metabot/Metabot/ws_robot/devel/share/niryo_robot_description/cmake/niryo_robot_descriptionConfig-version.cmake
+/home/harryting/metabot/Metabot/ws_robot/devel/.private/niryo_robot_description/share/niryo_robot_description/cmake/niryo_robot_descriptionConfig.cmake /home/harryting/metabot/Metabot/ws_robot/devel/share/niryo_robot_description/cmake/niryo_robot_descriptionConfig.cmake
+/home/harryting/metabot/Metabot/ws_robot/devel/.private/niryo_robot_description/lib/pkgconfig/niryo_robot_description.pc /home/harryting/metabot/Metabot/ws_robot/devel/lib/pkgconfig/niryo_robot_description.pc

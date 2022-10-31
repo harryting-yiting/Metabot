@@ -1,0 +1,6 @@
+niryo_one_ros/niryo_one_commander
+/home/harryting/metabot/Metabot/ws_robot/devel/.private/niryo_one_commander/cmake.lock /home/harryting/metabot/Metabot/ws_robot/devel/./cmake.lock
+/home/harryting/metabot/Metabot/ws_robot/devel/.private/niryo_one_commander/share/niryo_one_commander/cmake/niryo_one_commanderConfig-version.cmake /home/harryting/metabot/Metabot/ws_robot/devel/share/niryo_one_commander/cmake/niryo_one_commanderConfig-version.cmake
+/home/harryting/metabot/Metabot/ws_robot/devel/.private/niryo_one_commander/share/niryo_one_commander/cmake/niryo_one_commanderConfig.cmake /home/harryting/metabot/Metabot/ws_robot/devel/share/niryo_one_commander/cmake/niryo_one_commanderConfig.cmake
+/home/harryting/metabot/Metabot/ws_robot/devel/.private/niryo_one_commander/lib/python3/dist-packages/niryo_one_commander/__init__.py /home/harryting/metabot/Metabot/ws_robot/devel/lib/python3/dist-packages/niryo_one_commander/__init__.py
+/home/harryting/metabot/Metabot/ws_robot/devel/.private/niryo_one_commander/lib/pkgconfig/niryo_one_commander.pc /home/harryting/metabot/Metabot/ws_robot/devel/lib/pkgconfig/niryo_one_commander.pc

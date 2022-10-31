@@ -1,0 +1,6 @@
+niryo_one_ros/niryo_one_camera
+/home/harryting/metabot/Metabot/ws_robot/devel/.private/niryo_one_camera/cmake.lock /home/harryting/metabot/Metabot/ws_robot/devel/./cmake.lock
+/home/harryting/metabot/Metabot/ws_robot/devel/.private/niryo_one_camera/share/niryo_one_camera/cmake/niryo_one_cameraConfig-version.cmake /home/harryting/metabot/Metabot/ws_robot/devel/share/niryo_one_camera/cmake/niryo_one_cameraConfig-version.cmake
+/home/harryting/metabot/Metabot/ws_robot/devel/.private/niryo_one_camera/share/niryo_one_camera/cmake/niryo_one_cameraConfig.cmake /home/harryting/metabot/Metabot/ws_robot/devel/share/niryo_one_camera/cmake/niryo_one_cameraConfig.cmake
+/home/harryting/metabot/Metabot/ws_robot/devel/.private/niryo_one_camera/lib/python3/dist-packages/niryo_one_camera/__init__.py /home/harryting/metabot/Metabot/ws_robot/devel/lib/python3/dist-packages/niryo_one_camera/__init__.py
+/home/harryting/metabot/Metabot/ws_robot/devel/.private/niryo_one_camera/lib/pkgconfig/niryo_one_camera.pc /home/harryting/metabot/Metabot/ws_robot/devel/lib/pkgconfig/niryo_one_camera.pc

@@ -1,0 +1,5 @@
+niryo_one_ros/niryo_one_camera_jevois
+/home/harryting/metabot/Metabot/ws_robot/devel/.private/niryo_one_camera_jevois/cmake.lock /home/harryting/metabot/Metabot/ws_robot/devel/./cmake.lock
+/home/harryting/metabot/Metabot/ws_robot/devel/.private/niryo_one_camera_jevois/share/niryo_one_camera_jevois/cmake/niryo_one_camera_jevoisConfig.cmake /home/harryting/metabot/Metabot/ws_robot/devel/share/niryo_one_camera_jevois/cmake/niryo_one_camera_jevoisConfig.cmake
+/home/harryting/metabot/Metabot/ws_robot/devel/.private/niryo_one_camera_jevois/share/niryo_one_camera_jevois/cmake/niryo_one_camera_jevoisConfig-version.cmake /home/harryting/metabot/Metabot/ws_robot/devel/share/niryo_one_camera_jevois/cmake/niryo_one_camera_jevoisConfig-version.cmake
+/home/harryting/metabot/Metabot/ws_robot/devel/.private/niryo_one_camera_jevois/lib/pkgconfig/niryo_one_camera_jevois.pc /home/harryting/metabot/Metabot/ws_robot/devel/lib/pkgconfig/niryo_one_camera_jevois.pc

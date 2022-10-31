@@ -1,0 +1,43 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/harryting/metabot/Metabot/ws_robot/devel/include/**",
+        "/home/harryting/ws_moveit/devel/include/**",
+        "/opt/ros/noetic/include/**",
+        "/home/harryting/ws_moveit/src/moveit/moveit_planners/chomp/chomp_motion_planner/include/**",
+        "/home/harryting/metabot/Metabot/ws_robot/src/niryo_one_ros/dynamixel_sdk/include/**",
+        "/home/harryting/ws_moveit/src/geometric_shapes/include/**",
+        "/home/harryting/metabot/Metabot/ws_robot/src/niryo_one_ros/mcp_can_rpi/include/**",
+        "/home/harryting/ws_moveit/src/moveit/moveit_planners/chomp/chomp_interface/include/**",
+        "/home/harryting/ws_moveit/src/moveit_resources/prbt_ikfast_manipulator_plugin/include/**",
+        "/home/harryting/ws_moveit/src/moveit/moveit_ros/benchmarks/include/**",
+        "/home/harryting/ws_moveit/src/moveit/moveit_plugins/moveit_ros_control_interface/include/**",
+        "/home/harryting/ws_moveit/src/moveit/moveit_ros/move_group/include/**",
+        "/home/harryting/ws_moveit/src/moveit/moveit_ros/occupancy_map_monitor/include/**",
+        "/home/harryting/ws_moveit/src/moveit/moveit_ros/robot_interaction/include/**",
+        "/home/harryting/ws_moveit/src/moveit/moveit_ros/moveit_servo/include/**",
+        "/home/harryting/ws_moveit/src/moveit/moveit_setup_assistant/include/**",
+        "/home/harryting/ws_moveit/src/moveit/moveit_plugins/moveit_simple_controller_manager/include/**",
+        "/home/harryting/ws_moveit/src/moveit_visual_tools/include/**",
+        "/home/harryting/metabot/Metabot/ws_robot/src/niryo_one_ros/niryo_one_debug/include/**",
+        "/home/harryting/metabot/Metabot/ws_robot/src/niryo_one_ros/niryo_one_driver/include/**",
+        "/home/harryting/ws_moveit/src/moveit/moveit_planners/pilz_industrial_motion_planner/include/**",
+        "/home/harryting/ws_moveit/src/moveit/moveit_planners/pilz_industrial_motion_planner_testutils/include/**",
+        "/home/harryting/ws_moveit/src/rviz_visual_tools/include/**",
+        "/home/harryting/ws_moveit/src/srdfdom/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}
