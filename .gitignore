@@ -91,7 +91,12 @@ _deps
 *.pch
 
 # Compiled Dynamic libraries
-*.so
+*.somsg/*ActionFeedback.msg
+msg/*ActionGoal.msg
+msg/*ActionResult.msg
+msg/*Feedback.msg
+msg/*Goal.msg
+msg/*Result.msg
 *.dylib
 *.dll
 
