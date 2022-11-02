@@ -2,7 +2,7 @@
 <launch>
 
   <!-- these are the arguments you can pass this launch file, for example paused:=true -->
-  <arg name="paused" default="true"/>
+  <arg name="paused" default="false"/>
   <arg name="use_sim_time" default="true"/>
   <arg name="gui" default="true"/>
   <arg name="rviz" default = "true"/>
@@ -21,22 +21,23 @@
     <arg name="extra_gazebo_args" value="$(arg extra_gazebo_args)"/>
   </include>
 
+    <arg name="tcp_ip" default="10.13.164.115"/>
+    <arg name="tcp_port" default="10000"/>
+	
+    <node name="server_endpoint" pkg="ros_tcp_endpoint" type="default_server_endpoint.py" args="--wait" output="screen" respawn="true">
+		<param name="tcp_ip" type="string" value="$(arg tcp_ip)"/>
+        <param name="tcp_port" type="int" value="$(arg tcp_port)"/>
+	</node>
+
   <!-- Load the URDF into the ROS Parameter Server -->
   <include file="$(find niryo_moveit)/launch/load_niryo.launch"/>
 
   <!-- Start move_group -->
-  <include file="$(find niryo_moveit)/launch/move_group.launch"/>
-
+  <include file="$(find niryo_moveit)/launch/demo.launch"/>
+  <node name="mover" pkg="niryo_moveit" type="mover.py" args="--wait" output="screen"/>
   <!-- Spawn the URDF objects into Gazebo -->
-  <include file="$(find niryo_robot_gazebo)/launch/spawn_robots.launch"/>
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" respawn="false"
+          args="-urdf -model niryo_robot -param robot_description" output="log"/>
 
-  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
-    <rosparam param="source_list">[/niryo_robot/joint_states]</rosparam>
-  </node>
 
-  <node pkg="robot_state_publisher" type="robot_state_publisher"  name="robots_state_publisher">
-    <param name="publish_frequency" type="double" value="50.0"/>
-  </node>
-
-  <node pkg="tf2_ros" type="static_transform_publisher" name="map_to_world" args="0 0 0 0 0 0 1  odom world"/>
   </launch>

@@ -18,6 +18,9 @@ from geometry_msgs.msg import Quaternion, Pose
 from std_msgs.msg import String
 from moveit_commander.conversions import pose_to_list
 
+
+import actionlib
+
 from niryo_moveit.srv import MoverService, MoverServiceRequest, MoverServiceResponse
 
 joint_names = ['joint_1', 'joint_2', 'joint_3', 'joint_4', 'joint_5', 'joint_6']
@@ -71,7 +74,7 @@ def plan_trajectory(move_group, destination_pose, start_joint_angles):
 """
 def plan_pick_and_place(req):
     response = MoverServiceResponse()
-
+    
     group_name = "arm"
     move_group = moveit_commander.MoveGroupCommander(group_name)
 
@@ -88,7 +91,7 @@ def plan_pick_and_place(req):
 
     # Grasp - lower gripper so that fingers are on either side of object
     pick_pose = copy.deepcopy(req.pick_pose)
-    pick_pose.position.z -= 0.05  # Static value coming from Unity, TODO: pass along with request
+    pick_pose.position.z -= (0.05 ) # Static value coming from Unity, TODO: pass along with request
     grasp_pose = plan_trajectory(move_group, pick_pose, previous_ending_joint_angles)
     
     if not grasp_pose.joint_trajectory.points:
@@ -116,7 +119,17 @@ def plan_pick_and_place(req):
     response.trajectories.append(pick_up_pose)
     response.trajectories.append(place_pose)
 
-    move_group.clear_pose_targets()
+    # Action Client for Gazebo ros_trajectory_controll
+    arm_client = actionlib.SimpleActionClient('execute_trajectory',
+    moveit_msgs.msg.ExecuteTrajectoryAction)
+    arm_client.wait_for_server()
+    rospy.loginfo('Execute Trajectory server is available for robot1')
+
+    arm_goal = moveit_msgs.msg.ExecuteTrajectoryGoal()
+    arm_goal.trajectory = pre_grasp_pose
+
+    arm_client.send_goal(arm_goal)
+    arm_client.wait_for_result()
 
     return response
 
