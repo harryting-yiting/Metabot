@@ -167,7 +167,7 @@
     <joint name="joint_world" type="fixed">
         <parent link="world"/>
         <child link="base_link"/>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <origin xyz="0 0 0.63" rpy="0 0 0"/>
     </joint>
 
     <joint name="joint_1" type="revolute">

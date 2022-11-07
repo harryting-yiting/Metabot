@@ -1,18 +1,6 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="niryo_one">
-    <!-- <xacro:include filename="$(find niryo_robot_description)/urdf/one/niryo_one_camera.urdf.xacro"/> -->
- <xacro:include filename="$(find niryo_robot_description)/urdf/one/niryo_one_gazebo.urdf.xacro"/>
-    <!-- gazebo joint state publisher for all joints. Necessary to control mors -->
-    <gazebo>
-        <plugin name="passive_joint_state_publisher" filename="libgazebo_ros_joint_state_publisher.so">
-
-            <jointName>joint_1, joint_2, joint_3, joint_4, joint_5, joint_6,
-                joint_base_to_mors_1, joint_base_to_mors_2
-            </jointName>
-            <updateRate>50.0</updateRate>
-            <alwaysOn>true</alwaysOn>
-        </plugin>
-    </gazebo>
+    <xacro:include filename="$(find niryo_robot_description)/urdf/one/niryo_one_gazebo.urdf.xacro"/>
 
     <!-- Joint from tool_link to base_gripper -->
     <joint name="joint_to_gripper" type="fixed">
@@ -151,8 +139,8 @@
     </joint>
 
     <!-- Transmissions -->
-    <xacro:SimpleTransmissionEffort n="7" joint="joint_base_to_mors_1"/>
-    <xacro:SimpleTransmissionEffort n="8" joint="joint_base_to_mors_2"/>
+    <xacro:SimpleTransmissionPostion n="7" joint="joint_base_to_mors_1"/>
+    <xacro:SimpleTransmissionPostion n="8" joint="joint_base_to_mors_2"/>
 
 
     <!-- material -->
@@ -168,4 +156,4 @@
         <material>Gazebo/DarkGrey</material>
     </gazebo>
 
-</robot>
+</xml>

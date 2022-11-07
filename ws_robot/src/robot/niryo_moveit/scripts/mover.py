@@ -78,7 +78,9 @@ def plan_pick_and_place(req):
     group_name = "arm"
     move_group = moveit_commander.MoveGroupCommander(group_name)
 
-    current_robot_joint_configuration = req.joints_input.joints
+    current_robot_joint_configuration = move_group.get_current_joint_values()
+    
+    # = req.joints_input.joints
 
     # Pre grasp - position gripper directly above target object
     pre_grasp_pose = plan_trajectory(move_group, req.pick_pose, current_robot_joint_configuration)
@@ -112,7 +114,6 @@ def plan_pick_and_place(req):
 
     if not place_pose.joint_trajectory.points:
         return response
-
     # If trajectory planning worked for all pick and place stages, add plan to response
     response.trajectories.append(pre_grasp_pose)
     response.trajectories.append(grasp_pose)
@@ -126,6 +127,8 @@ def plan_pick_and_place(req):
     rospy.loginfo('Execute Trajectory server is available for robot1')
 
     arm_goal = moveit_msgs.msg.ExecuteTrajectoryGoal()
+    pre_grasp_pose.joint_trajectory.points[0].positions = move_group.get_current_joint_values()
+
     arm_goal.trajectory = pre_grasp_pose
 
     arm_client.send_goal(arm_goal)
@@ -144,4 +147,5 @@ def moveit_server():
 
 
 if __name__ == "__main__":
+    print("Ready to plan")
     moveit_server()
