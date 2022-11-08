@@ -1,0 +1,5 @@
+#!/bin/bash
+
+source /opt/ros/$ROS_DISTRO/setup.bash
+cd $ROS_WORKSPACE
+catkin_make
