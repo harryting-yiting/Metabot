@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c444d6f85828f1b4f9b89c7c387f9ddd, type: 3}
   m_Name: msgbrowser_settings
   m_EditorClassIdentifier: 
-  inputPath: /home/harryting/playground/Unity-Robotics-Hub/tutorials/pick_and_place/ROS/src/niryo_moveit/srv
+  inputPath: /home/harryting/Desktop/Metabot/Unity-Robotics-Hub/tutorials/pick_and_place/ROS
   relativeOutPath: RosMessages

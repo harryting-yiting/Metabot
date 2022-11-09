@@ -2,18 +2,13 @@ using System;
 using System.Collections;
 using System.Linq;
 using RosMessageTypes.Geometry;
-using RosMessageTypes.NiryoMoveit;  // self-defined message in NiryoMoveit package
+using RosMessageTypes.NiryoMoveit;
 using Unity.Robotics.ROSTCPConnector;
 using Unity.Robotics.ROSTCPConnector.ROSGeometry;
 using UnityEngine;
 
-// ly change
-using RosMessageTypes.Sensor;
-using RosMessageTypes.Std;
-
 public class TrajectoryPlanner : MonoBehaviour
 {
-    // 没有声明public就是类的私有成员
     // Hardcoded variables
     const int k_NumRobotJoints = 6;
     const float k_JointAssignmentWait = 0.1f;
@@ -21,15 +16,9 @@ public class TrajectoryPlanner : MonoBehaviour
 
     // Variables required for ROS communication
     [SerializeField]
-    // Service name - “niryo_moveit”
     string m_RosServiceName = "niryo_moveit";
-
-    // ly change
-    [SerializeField]
-    string m_RosSubscribeName = "joint_state"; // 话题名可能会写错
-
     public string RosServiceName { get => m_RosServiceName; set => m_RosServiceName = value; }
-    // 这里对每个gameobject的对象都赋予多一个public的gameobject
+
     [SerializeField]
     GameObject m_NiryoOne;
     public GameObject NiryoOne { get => m_NiryoOne; set => m_NiryoOne = value; }
@@ -41,7 +30,6 @@ public class TrajectoryPlanner : MonoBehaviour
     public GameObject TargetPlacement { get => m_TargetPlacement; set => m_TargetPlacement = value; }
 
     // Assures that the gripper is always positioned above the m_Target cube before grasping.
-    // read only，只读（相当于const）
     readonly Quaternion m_PickOrientation = Quaternion.Euler(90, 90, 0);
     readonly Vector3 m_PickPoseOffset = Vector3.up * 0.1f;
 
@@ -61,18 +49,7 @@ public class TrajectoryPlanner : MonoBehaviour
     {
         // Get ROS connection static instance
         m_Ros = ROSConnection.GetOrCreateInstance();
-
-        //写在构造函数里的注册一个服务，<request的消息类型，response的消息类型>（service的名字）
         m_Ros.RegisterRosService<MoverServiceRequest, MoverServiceResponse>(m_RosServiceName);
-
-        // ly change
-        // this code just register the subscriber rather than call the subscribe callback function
-        // m_Ros.RegisterSubscriber<JointStateMsg>(m_RosSubscribeName, DisplayGazeboJointState);
-
-        // ly change
-        // this code is call the subscribe callback function at the beginning
-        m_Ros.Subscribe<JointStateMsg>(m_RosSubscribeName, DisplayGazeboJointState);
-
 
         m_JointArticulationBodies = new ArticulationBody[k_NumRobotJoints];
 
@@ -114,7 +91,6 @@ public class TrajectoryPlanner : MonoBehaviour
         var leftDrive = m_LeftGripper.xDrive;
         var rightDrive = m_RightGripper.xDrive;
 
-        // 这个的赋值方式应该是unity自己的习惯，直接对 m_LeftGripper.xDrive.target是赋值不了的，因为是值拷贝
         leftDrive.target = 0.01f;
         rightDrive.target = -0.01f;
 
@@ -126,9 +102,6 @@ public class TrajectoryPlanner : MonoBehaviour
     ///     Get the current values of the robot's joint angles.
     /// </summary>
     /// <returns>NiryoMoveitJoints</returns>
-    /// this is a function, and return is NiryoMoveitJointsMsg MessageType
-    // And this function is to give the jointstate of robot in unity, and publish this message for ROS
-
     NiryoMoveitJointsMsg CurrentJointConfig()
     {
         var joints = new NiryoMoveitJointsMsg();
@@ -150,8 +123,6 @@ public class TrajectoryPlanner : MonoBehaviour
     public void PublishJoints()
     {
         var request = new MoverServiceRequest();
-
-        //  -------------------这是在给request赋值，即给出joints信息、pick pose和place pose-------------------
         request.joints_input = CurrentJointConfig();
 
         // Pick Pose
@@ -169,43 +140,10 @@ public class TrajectoryPlanner : MonoBehaviour
             position = (m_TargetPlacement.transform.position + m_PickPoseOffset).To<FLU>(),
             orientation = m_PickOrientation.To<FLU>()
         };
-        // -------------------这是在给request赋值，即给出joints信息、pick pose和place pose-------------------
 
-        // ROSConnection.GetOrCreateInstance().SendServiceMessage<SetSceneResponse>(serviceName, request, Callback) 函数原型
-        // SendServiceMessage<srv文件名+Response>(注册的服务名，new MoverServiceRequest()，Callback)
-
-        // m_Ros.SendServiceMessage<MoverServiceResponse>(m_RosServiceName, request, TrajectoryResponse);
-
-        // ly change
-        m_Ros.SendServiceMessage<MoverServiceResponse>(m_RosServiceName, request, PlanningResultResponse);
+        m_Ros.SendServiceMessage<MoverServiceResponse>(m_RosServiceName, request, TrajectoryResponse);
     }
 
-    // ly change
-    // ----------------------------------
-    // This Callback function, Tell the unity whether Planning Trajectory success or not, Give the Planning Result
-    // True means planning successful, False means planning fail
-    // ----------------------------------
-    void PlanningResultResponse(MoverServiceResponse response)
-    {
-        if (response.planningResult == true)
-        {
-            Debug.Log("Trajectory returned.");
-        }
-        else
-        {
-            Debug.LogError("No trajectory returned from MoverService.");
-        }
-    }
-
-
-    // ly change
-    // describe callback
-    void DisplayGazeboJointState(JointStateMsg jointstate)
-    {
-        StartCoroutine(SetJointValues(jointstate));
-    }
-
-    // response，当response从服务器server传回来的时候，进入回调函数
     void TrajectoryResponse(MoverServiceResponse response)
     {
         if (response.trajectories.Length > 0)
@@ -230,26 +168,11 @@ public class TrajectoryPlanner : MonoBehaviour
     /// </summary>
     /// <param name="response"> MoverServiceResponse received from niryo_moveit mover service running in ROS</param>
     /// <returns></returns>
-
-    // ly change
-    IEnumerator SetJointValues(JointStateMsg jointstate)
-    {
-        for (int i = 0; i < jointstate.name.Length - 2; i++)
-        {
-            var joint1XDrive = m_JointArticulationBodies[i].xDrive;
-            joint1XDrive.target = (float)(jointstate.position[i]) * Mathf.Rad2Deg;
-            m_JointArticulationBodies[i].xDrive = joint1XDrive;
-            Debug.Log(joint1XDrive.target);
-        }
-        yield return new WaitForSeconds(k_JointAssignmentWait);
-    }
-
-    // 回来看看这个函数 如何extract trajectory
     IEnumerator ExecuteTrajectories(MoverServiceResponse response)
     {
         if (response.trajectories != null)
         {
-            // For every trajectory plan returned —— 每次接收到轨迹规划，trajectory
+            // For every trajectory plan returned
             for (var poseIndex = 0; poseIndex < response.trajectories.Length; poseIndex++)
             {
                 // For every robot pose in trajectory plan
@@ -258,7 +181,7 @@ public class TrajectoryPlanner : MonoBehaviour
                     var jointPositions = t.positions;
                     var result = jointPositions.Select(r => (float)r * Mathf.Rad2Deg).ToArray();
 
-                    // Set the joint values for every joint —— 为每个关节赋值
+                    // Set the joint values for every joint
                     for (var joint = 0; joint < m_JointArticulationBodies.Length; joint++)
                     {
                         var joint1XDrive = m_JointArticulationBodies[joint].xDrive;
